@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# PySpark
+spark-warehouse/
+metastore_db/
+derby.log
+*.parquet
+*.orc
+
+# Data files (do NOT commit real data)
+data/
+*.csv
+*.tsv
+!sample_data.csv
+
+# Databricks
+.databricks/
+
+# Environment / Secrets — NEVER commit these
+.env
+*.env
+config/secrets.yaml
+config/*_password.txt
+credentials.json
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test / Coverage
+.pytest_cache/
+.coverage
+htmlcov/

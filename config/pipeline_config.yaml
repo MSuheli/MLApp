@@ -1,0 +1,35 @@
+# MLApp Pipeline Configuration
+
+app:
+  name: MLApp
+  version: 1.0.0
+  environment: dev
+
+spark:
+  app_name: MLApp
+  shuffle_partitions: 200
+  driver_memory: 4g
+  executor_memory: 4g
+
+data_sources:
+  transactions:
+    path: data/transactions.csv
+    format: csv
+    header: true
+  customers:
+    path: data/customers.csv
+    format: csv
+    header: true
+  products:
+    path: data/products.csv
+    format: csv
+    header: true
+
+output:
+  base_path: output/
+  format: parquet
+  mode: overwrite
+
+logging:
+  level: INFO
+  log_file: logs/pipeline.log
