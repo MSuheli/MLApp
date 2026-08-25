@@ -5,8 +5,12 @@ from pyspark.sql import DataFrame
 from pyspark.sql import functions as F
 
 def clean_data(df):
-    df = df.na.drop(how='any')
-    df = df.filter(df['amount'].isNotNull())
+    # Drop rows where customer_id is null
+    df = df.dropna(subset=['customer_id'])
+    # Drop rows with nulls in critical columns
+    df = df.na.drop(subset=['amount', 'transaction_date'])
+    # Keep only positive amounts
+    df = df.filter(df['amount'] > 0)
     return df
 
 
