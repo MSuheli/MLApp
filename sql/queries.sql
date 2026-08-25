@@ -36,3 +36,9 @@ SELECT
 FROM transactions
 GROUP BY DATE_TRUNC('month', transaction_date)
 ORDER BY month;
+
+-- MLAPP-1234: Customer segment counts
+SELECT segment, COUNT(*) AS customer_count
+FROM customer_segments
+GROUP BY segment
+ORDER BY customer_count DESC;
